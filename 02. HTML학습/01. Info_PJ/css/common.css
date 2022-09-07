@@ -4,7 +4,7 @@
 /* 박스공통 */
 .part {
     width: 750px;
-    border: 4px double #10d544;
+    border: 4px double darkgray;
     /* 보더: 두께 종류 색상 (두종색) */
     padding: 10px;
     margin: 20px auto;
@@ -27,7 +27,7 @@ header {
     /* 글자중앙 */
 
     /* 배경색 bgc */
-    background-color: #e5fbe6;
+    background-color: gray;
 
 
 }
