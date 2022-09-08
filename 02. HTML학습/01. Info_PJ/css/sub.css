@@ -122,7 +122,6 @@
 .arti del {
     /* 글자색 c */
     color: lightpink;
-
 }
 
 
@@ -169,4 +168,235 @@
     font-size: 26px;
     /* 패딩 왼쪽 pl */
     padding-left: 20px;
+}
+
+/* 블록 인용구 박스 */
+.bquote blockquote {
+    /* 마진 없앰 m0 */
+    margin: 0;
+    /* 패딩 p */
+    padding: 5px;
+    /* float설정으로 망가진 부모박스는 overflow: hidden으로 고쳐준다(자식의 크기인식) */
+    /* 넘치는 자식요소 숨기기 oh */
+    overflow: hidden;
+
+    /* 글자설정 */
+    /* font : 스두크/줄체 */
+    font: 17px/1.5 'Nanum Gothic';
+    /* 글자정렬 taj */
+    text-align: justify;
+    /* justify 양쪽정렬 */
+    /* 들여쓰기 ti */
+    text-indent: 10px;
+}
+/* 블록인용박스 내 이미지 */
+.bquote img {
+    /* 이미지는 왼쪽에 글자는 오른쪽으로 흘러가게 설정 */
+    float: left;
+    /* 
+    [ float속성 ] 
+    - 인라인요소에서 사용하면 선택된 요소의 위치를 잡고 그 왼쪽이나 오른쪽으로 다른 컨텐츠가 흘러가게 한다.
+    - 특히, 이미지에서 글자를 오른쪽이나 왼쪽으로 흘러가게 함
+    - 기본적으로 이미지 하단에 한줄만 글자가 흘러가게 되어있음!
+    (블록에서 float은 별도로다룸!)
+
+    -> 값에 따라
+    left - 나는 왼쪽 다른건 오른쪽으로 흘러감
+    right - 나는 오른쪽 다른건 왼쪽으로 흘러감
+    (인라인요소를 오른쪽 끝으로 보낼때도 사용함!)
+     */
+    border-radius: 5px;
+    /* 오른쪽 마진 mr */
+    margin-right: 15px;
+}
+
+/* 주해박스 */
+/* .desc 앞에 .main부모를 쓴이유?
+기존 세팅 .main article에서 설정한 값이 우선하기 때문에 이것보다
+우선하도록 상위 부로를 씀! */
+.main .desc {
+    /* 보더 하단 bdb */
+    border-bottom: 2px dashed #ccc;
+    /* 패딩 하단 pb */
+    padding-bottom: 10px;
+    /* 마진 하단 mb */
+    margin-bottom: 40px;
+}
+/* 주해박스 small요소*/
+.desc small {
+    display: block;
+    /* 패딩 p - 위아래 양쪽 */
+    padding: 0 20px;
+    
+
+}
+
+/* 오늘의 작품 & 느낌 */
+.work {
+    /* 글자중앙정렬 tac */
+    text-align: center;
+    /*  배경색 bgc */
+    background-color: lightgoldenrodyellow;
+}
+/* 오늘의 작품 cite 요소 */
+.work cite {
+    /* cite요소 기본 이탤릭해제 */
+    font-style: normal;
+    /* 글자 두껍게 fwb */
+    font-weight: bold;
+    /* 글자체 ff */
+    font-family: 'Black and White Picture', sans-serif;
+    /* 글자크기 fz */
+    font-size: 20;
+    /* 글자색 c */
+    color: darkorange;
+}
+
+/* 메인 컨텐츠 아래 a요소
+주의사항 - 글자색, 밑줄은 반드시 a요소에서 처리할것! */
+.main a {
+    /* 글자색 c */
+    color: #222;
+    /* 글자데코 tdn 밑줄 없앰 */
+    text-decoration: none;
+    /* 글자크기 fz */
+    font-size: 17px;
+    /* 글자체 ff */
+    font-family: "Nanum Gothic";
+    /* 줄간격 lh */
+    line-height: 2.5;
+    /* 글자간격 ls */
+    letter-spacing: -1px;
+    
+}
+/* a요소 마우스 오버시 */
+/* 가상클래스 :hover */
+.main a:hover {
+    /* 글자색 c */
+    color: greenyellow;
+    /* 글자 그림자 ts */
+    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: x축 y축 경계흐림 색; */
+
+}
+/* ul, ol 블릿,숫자 타입변경 */
+.main ul {
+    /* 리스트타입 lst */
+    list-style-type: square;
+    /* square 사격형, disc 원형 , circle 빈원*/
+}
+.main ol {
+    list-style-type: upper-roman;
+    /* upper-roman 로마자 대문자 */
+    /* 순서를 표시하는 종류가 많다! */
+}
+
+/* li 순서별 글자색 변경하기 */
+.main ul li:first-child a {
+    color: red;
+
+}
+.main ul li:nth-child(2) a {
+    color: blue;
+
+}
+.main ul li:last-child a {
+    color: purple;
+
+}
+
+
+
+/* 분야별 뉴스 dt */
+
+.secnews dt  {
+    font-family: "Black And White Picture", sans-serif;
+    margin-top: 30px;
+    padding-left: 5px;
+    font-size: 22px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.476);
+    /* 한줄에 오고 디자인은 블록처럼 적용 */
+    display: inline-block;
+    border: 3px dotted darkcyan;
+    /* 둥근모서리 - 50%값 설정시 원 */
+    border-radius: 50%;
+}
+/* dt 순서별 글자색 변경 */
+.secnews dt:first-of-type {
+    color: darkgreen;
+}
+.secnews dt:nth-of-type(2) {
+    color: darkmagenta;
+}
+.secnews dt:last-of-type {
+    color: darkred;
+}
+
+/* 
+    [ 자식요소 순번 선택하기 ]
+
+    -> 태그가 한종류일떄 (예: ul>li, ol>li)
+    :first-child 첫번째 자식요소 
+    :nth-child(n) n번째 자식요소(n번째 1부터) 
+    :last-child 마지막 자식요소
+    -> 태그가 여러종류일떄 (예: dl>dt+dd)
+    :first-of-type 첫번째 자식요소 
+    :nth-of-type(n) n번째 자식요소(n은 1부터) 
+    :last-of-type 마지막 자식요소
+*/
+
+/* 사진뉴스 박스 */
+.pnews table {
+    /* 마영오! - 블록요소,테이블 중앙정렬 */
+    margin: 0 auto;
+}
+/* 첫번째 td - 숫자부분 */
+.pnews td:first-child {
+    /* 가로크기 w */
+    width: 50px;
+    /* 세로크기 h */
+    height: 70px;
+    /* 배경색 bgc */
+    background-color: #ccc;
+    /* 글자중앙 tac */
+    text-align: center;
+}
+/* 두번째 td - 뉴스제목링크 */
+.pnews td:nth-child(2) {
+    /* 배경색 bgc */
+    background-color: #eaeaea;
+    /* 패팅 오른쪽 pr */
+    padding-right: 116px;
+    /* 패딩 왼쪽 pl */
+    padding-left: 20px;
+}
+/* 사진뉴스 이미지 */
+.pnews img {
+    /* 가로크기 w */
+    width: 151px;
+    /* 세로크기 h */
+    height: 103px;
+    /* td에서 이미지 세로중앙 */
+    vertical-align: middle;
+    /* 
+        원래 vertical-align은
+        인라인요소간 세로정렬을 셋팅하는 속성인데
+        테이블의 td에서 이 속성은 td의 세로정렬에 사용할 수 있다
+        여기서는 높이값이 지정되지 않은상태에서 middle값을 주면
+        아래쪽 빈공간이 사라진다.
+     */
+}
+/* 사진뉴스 테이블 설정 */
+.pnews table {
+    /* 테이블 기본간극 bdcoll*/
+    /* 
+        값 :
+        collapse - 기본간극 없엠!
+        seperate - 간극있음(기본값) 
+    */
+    border-collapse: separate;
+    /* 사이간격 수치설정하기
+    - 주의- seperate 상태에서만 설정
+    */
+    border-spacing: 7px;
 }
