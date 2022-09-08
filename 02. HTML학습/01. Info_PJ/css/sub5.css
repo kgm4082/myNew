@@ -1,0 +1,74 @@
+@import url(common.css);
+
+.main {
+    /* 패딩 p15 */
+    padding: 15px;
+}
+.atit {
+    margin: 6px;
+}
+.afig {
+    /* 마진 m */
+    margin: 15px 0;
+    /* 마진 위아래 양쪽 */
+
+    /* 컨텐츠 중앙정렬 tac */
+    text-align: center;
+}
+/* 기사 이미지 */
+.afig img {
+    /* 뢰대가로크기 maw100p */
+    max-width: 100%;
+    /* 이미지에 이설정을 하면
+    박스가 이미지보다 작아질때
+    아미지가 박스크기 맞게 작아짐!  */
+    /* 가로크기 w100p */
+    width: 100%;
+}
+.afig small {
+    /* 글자체 ff */
+    font-family: "Nanum Gothic";
+    /* 글자색 c */
+    color: #555;
+}
+.arti p {
+    /* 글자체 ff */
+    font-family: "Nanum-Gothic","굴림";
+    /* 글자크기 fz */
+    font-size: 18px;
+    /* 줄간격 lh */
+    line-height: 1.6;
+    /* 패딩양쪽 */
+    padding: 0 10px;
+}
+.rinfo {
+    /* 패딩 p10 */
+    padding: 12px;
+    /* 글자크기 fz14 */
+    font-size: 14px;
+     
+}
+.org a {
+    /* 패딩 p10 */
+    padding: 10px;
+    /* 글자크기*/
+    font-size: 20px;
+    /* 글자색 c */
+    color: lightseagreen;
+    /* 글자 밑줄없셈 tdn */
+    text-decoration: none;
+    /* 보더 */
+    border: 1px dashed lightblue;
+
+}
+.rank {
+    border-top: 2px dashed #ccc;
+    padding-top: 30px;
+}
+.rank h3 {
+    font-size: 16px;
+    display: inline;
+}
+.sub_text {
+    font-size: 15px;
+}
