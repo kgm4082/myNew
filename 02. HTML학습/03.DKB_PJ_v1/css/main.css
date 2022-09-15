@@ -6,7 +6,6 @@
 @import url(./reset.css);
 @import url(./core.css);
 @import url(./common.css);
-
 /* 공사중 표시 */
 body * {
     outline: 2px dashed gray;
@@ -29,3 +28,152 @@ body {
     */
 }
 
+/*** 메인영역 ***/
+.cont {
+    /* 최소높이값 mh */
+    min-height: 969px;
+    /* 최소높이는 내용이 없어도
+    설정되 크기를 유지하다가 내용이
+    많아지면 늘어난다!(많이사용됨) */
+    
+    /* 넘치는 자식요소숨기기 */
+    overflow: hidden;
+    /* 이거 왜했지? 첫번째 자식요소 마진탑값이
+    부모요소 바깥으로 미는 기본특성이 있으므로
+    이것을 포함하기 위해 설정함! */
+}
+
+/* 전페 캐릭터 박스*/
+.cbx {
+    /* 가로크기 w */
+    width: 90%;
+    /* 마영오! */
+    margin: 0 auto;
+    /* 마진탑 mt */
+    margin-top: 500px;
+    /* 마진아래 mb */
+    margin-bottom: 100px;
+}
+
+/* 자식 요소의 float해제 설정 가상요소 after로! */
+.cbx::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* 캐릭터 박스 */
+.cat {
+    /* 가로크기 4등분 : 25% - 1%(양쪽마진) */
+    width: 24%;
+    /* 양쪽 마진 : 위아래 0 양쪽 0.5% */
+    margin: 0 .5%;
+    /* 보통 0.5%와 같이 0.소수점은 앞에 0생략가능! */
+    /* 블록박스 옆으로 흐르게  */
+    float: left;
+    /* left값은 "나는왼쪽에 너는오른쪽에 올라와!" */
+}
+
+/* 캐릭터 이미지 */
+/* .ci의 직계자식 img만 선택 */
+.ci > img {
+    /* 박스를 채움 */
+    width: 100%;
+}
+
+/* 캐릭터 이름 박스 */
+.ci figcaption {
+    /* 글자중앙 tac 
+        text-align 속성은 글자뿐만아니라
+        인라인요소는 모두 적용된다!
+        단, 크기를 가지는 블록형 박스만 됨!*/
+    text-align: center;
+
+    /* 이미지를 위로 올려 겹치게 하려면? 
+    포지션을 안쓰고는 마진을 마이너스로 준다! */
+    margin-top: -21%;
+    /* %의 기준은? 원래박스 높이값 */
+}
+
+/* 캐릭터 이름이미지 공통 */
+.ci figcaption img {
+    /* 가로크기 w 50% */
+    width: 40%;
+    /* 항상 값이 %단위일 경우
+    질문한다~!!! 기준이뭐지? 
+    -> 여기서는 싸고 있는 
+    figcaption 박스 가로크기가 기준*/
+}
+
+/* 캐릭터 이름이미지 */
+/* 캐릭터 이름이미지 첫번째이미지 (진한이미지) 숨기기 */
+
+.ci figcaption img:first-child {
+    display: none;
+    
+}
+/* 캐릭터박스 .cat에 오버시 */
+/* 마우스 오버시 처리1
+첫번째 이미지 보이기 */
+.cat:hover .ci figcaption img:first-child {
+    display: inline;
+    
+}
+/* 마우스 오버시 처리2
+마지막 이미지 숨기기 */
+.cat:hover .ci figcaption img:last-child {
+    display: none;
+    
+}
+
+/* 캐릭터 설명박스 */
+.cd {
+    /* 높이값 설정 */
+    height: 250px;
+    /* 넘치는 내용요소 자동 스크롤 */
+    overflow: auto;
+    /* 
+        overflow 속성
+        -> 넘치는 요소 처리속성
+        - visible 넘쳐도보임 (기본값)
+        - hidden 넘치는 요소 숨기기
+        - scroll 스크롤 스크롤바 생김
+            (x,y 두방향 모두 생김)
+            overflow-y 로 해야 y만 생김
+        - auto 내용넘치면 자동으로
+            y축 스크롤만 생김
+    */
+    /* 마진 상단 */
+    margin-top: 15px;
+
+    /* 배경 : 색이반고윙/크 */
+    background: url(../images/eachBG.jpg) no-repeat center/cover;
+}
+
+/* 캐릭터 설명 타이틀 */
+.cd h3 {
+    /* 글자체 ff - 웹폰트 */
+    font-family: 'Black And White Picture', sans-serif;
+    /* 글자 크기 fz */
+    font-size: min(2vw,30px);
+    /* 글자 두껍게 보통 */
+    font-weight: normal;
+    /* 패딩 */
+    padding: 1vw 1.7vw 0px;
+    /* 줄간격 */
+    white-space: nowrap;
+}
+
+/* 캐릭터 설명 문단 */
+.cd p {
+    /* 글자체 ff - 웹폰트 */
+    font-family: 'Gugi','ZCOOL QingKe HuangYou', cursive;
+    /* 글자 크기 fz */
+    font-size: min(1.4vw,17px);
+    /* 줄간격 lh */
+    line-height: 1.7;
+    /* 패딩 p */
+    padding: 1vw;
+    /* 양쪽정렬 justify */
+    text-align: justify;
+}   
