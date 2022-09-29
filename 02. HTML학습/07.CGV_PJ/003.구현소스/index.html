@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <!-- 뷰포트필수! -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
     <title>CGV에 오신것을 환영합니다!</title>
-    
+
 </head>
+
 <body>
     <!-- 1. 상단영역 -->
     <div id="top">
-        <div class="top ibx">
+        <main class="top ibx">
             <!-- 1-1. 로고 -->
             <h1 class="tit">CGV 예고편 상영관</h1>
             <!-- 1-2. GNB메뉴 -->
             <nav class="gnb"></nav>
-        </div>
+        </main>
     </div>
     <!-- 2. 메인영역 -->
     <div id="cont">
-        <div class="cont ibx"></div>
+        <main class="cont ibx">
+            <!-- 2-1. 스크린박스 -->
+            <div id="screen">
+                <!-- 유튜브 아이프레임 -->
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/2hnkUpo_2yg?autoplay=1&mute=1" allow="autoplay" >
+                   </iframe>
+            </div>
+        </main>
     </div>
     <!-- 3. 하단영역 -->
     <div id="info">
-        <div class="info ibx"></div>
+        <footer class="info ibx"></footer>
     </div>
 </body>
+
 </html>
