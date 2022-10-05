@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>if문 연습</title>
+    <title>switch문 연습</title>
     <!-- 웹폰트 CDN -->
     <link href="https://fonts.googleapis.com/css?family=Audiowide&amp;display=swap" rel="stylesheet">
     <style>
@@ -146,29 +146,34 @@
             // 이미지 경로변수(이것이 버튼별 바뀜!)
             let isrc;
 
-            // 2. 버튼별 데이터 분기하기(if문사용!)
-            if (btxt === "포스터") {
-                isrc = "./images/ala1.jpg"
-            } ////// if ///
-            else if (btxt === "장면1") {
-                isrc = "./images/ala2.jpg"
-            } /// else if ///
-            else if (btxt === "장면2") {
+            // 2. 버튼별 데이터 분기하기(switch문사용!)
+
+            switch (btxt) {
+                case "포스터":
+                isrc = "./images/ala1.jpg";
+                    break;
+                case "장면1":
+                isrc = "./images/ala2.jpg";
+                    break;
+                case "장면2":
                 isrc = "./images/ala3.jpg"
-            } /// else if ///
-            else if (btxt === "장면3") {
+                    break;
+                case "장면3":
                 isrc = "./images/ala4.jpg"
-            } /// else if ///
+                    break;
+            } /////////// switch ///////////// 
+        
 
-            // 이미지 경로 확인!
-            console.log("이미지경로:", isrc);
 
-            // 3. 대상 이미지에 src값 변경하기
-            // 대상이미지 : #scene
-            // 속성변경하기 JS함수 : setAttribute(속성값,값)
-            document.querySelector("#scene")
+        // 이미지 경로 확인!
+        console.log("이미지경로:", isrc);
+
+        // 3. 대상 이미지에 src값 변경하기
+        // 대상이미지 : #scene
+        // 속성변경하기 JS함수 : setAttribute(속성값,값)
+        document.querySelector("#scene")
             .setAttribute("src", isrc);
-            // .src = isrc; 
+        // .src = isrc; 
 
         } ///////////// chgImg 함수 /////////////
         /////////////////////////////////////////
