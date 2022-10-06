@@ -21,6 +21,8 @@ body{
     position: relative;
     height: 80px;
     background: url(../images/curtain.jpg) repeat-x;
+    /* 가장위 */
+    z-index: 9999;
 }
 /* 1-1.로고 */
 .tit{
@@ -43,8 +45,8 @@ body{
     }
 } /* 키프레임 */
 
-/* 1-2. GNB */
-.gnb {
+/* 1-2.GNB */
+.gnb{
     /* 앱솔루트 포지션 */
     position: absolute;
     bottom: 20px;
@@ -52,15 +54,92 @@ body{
     /* 부모는? .top */
 }
 /* 네비 ul */
-.gnb ul {
-    /* 플렉스 박스 - 직계li만 옆으로! */
+.gnb ul{
+    /* 플렉스박스 - 직계li만 옆으로! */
     display: flex;
-}
-.gnb ul li {
+    /* 메뉴박스 공통 글자체 */
     font-family: 'Jua', sans-serif;
+}
+/* 상위 li만 적용! ul>li */
+.gnb ul>li{
+    /* 렐러티브 포지션 - 부모자격 */
+    position: relative;
     font-size: 2rem;
     padding: 0 10px;
 }
+
+/* GNB 서브메뉴 */
+.smenu{
+    position: absolute;
+    left: 50%;
+    /* 부모는? 싸고있는 li */
+
+    /* 트랜스폼 x축으로 중앙이동! y축은 5px이동 */
+    transform: translate(-50%,5px);
+    width: 140px;
+    padding: 3px;
+    background: url(../images/bg_smenu.png) no-repeat center/cover;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #fff;
+
+    /* 처음에 안보임! */
+    display: none;
+}
+/* 상위메뉴li에 마우스 오버시 하위메뉴 보이기 */
+.gnb ul>li:hover .smenu{
+    display: block;
+}
+
+/* 가상요소로 삼각형 모양 만들기 */
+.smenu::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    /* 부모는? .smenu */
+    transform: translateX(-50%);
+
+    /* 삼각형 만들기 */
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #353535;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+/* 서브메뉴 ol */
+.smenu ol{
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+/* 서브메뉴 li */
+.smenu li{
+    font-size: 1.6rem;
+    line-height: 2;
+}
+/* 서브메뉴 a요소 */
+.smenu a{
+    display: block;
+    /* li요소 패딩안쪽까지 확장! */
+}
+/* 서브메뉴 오버시 빨간색 글자 */
+.smenu a:hover{
+    color: red;
+}
+/* 서브메뉴 오버시 이모지 가상요소로 넣기 */
+/* 이모지는 윈도우키+세미콜론(;) 단축키 */
+.smenu a:hover::after{
+    content: '😍';
+    float: right;
+}
+
+/* 서브메뉴 중 li 보더 상단 class */
+.bdt{
+    border-top: 1px solid #ccc;
+}
+
+
 /****************** 2. 메인영역 ******************/
 .cont{
     /* 렐러티브 포지션 : 부모자격(#screen) */
@@ -220,17 +299,14 @@ body{
 /* 페이스북 */
 .sns a[class$=book]:hover{
     color: lightskyblue;
-
-/* 트위터 */
 }
+/* 트위터 */
 .sns a[class*=tw]:hover{
     color: lightcoral;
-
-/* 인스타그램 */
 }
+/* 인스타그램 */
 .sns a[class^='fa-brands fa-square-in']:hover{
     color: lightgreen;
-
 }
 /* 
     *** 속성선택자 -> [] 대괄호 사용 ***
@@ -242,7 +318,6 @@ body{
                     (^ 일은 웃으면서 시작)
     [속성명$=값] -> 값이 끝나는 문자가 있으면 적용
                     ($ 일이 끝나면 돈받고 끝나라!)
-    ___________________________________________
-
+    ___________________________________________                
     -> 문자열이 문제가 없다면 따옴표없이 사용가능!
 */
