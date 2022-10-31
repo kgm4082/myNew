@@ -141,7 +141,7 @@ https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor */
     font-size: 16px;
     line-height: 40px;
 
-    min-height: 46px;
+    min-height: 45px;
 }
 /* GNB ul */
 .gnb ul{
@@ -180,10 +180,18 @@ https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor */
 /* 1. 상단영역 최상위 고정 */
 #top.on {
     position: fixed;
-    top: 0;
+    top: -50px; /* 기본상단위에 숨김! */
     left: 0;
     width: 100%;
     background-color: #fff;
+    padding-top: 5px;
+    /* 트랜지션 */
+    transition: .4s ease-out;
+}
+/* 스크롤방향에 따라 top값 변경하기! 올라갈때니까 .up */
+#top.on.up {
+    top: 0;
+    /* 슬림메뉴 보이는 위치로! */
 }
 
 /* 2. 상단영역 속박스(.top) 최소높이 해제 */
@@ -199,10 +207,13 @@ https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor */
 /* 4. 로고박스 */
 #top.on .logo{
     position: absolute;
+    top: 0;
     left: 0;
+    /* 부모는? #top */
     padding: 10px;
     height: auto;
     margin-top: 0;
+
 }
 /* 로고이미지 */
 #top.on .logo img{
@@ -217,11 +228,30 @@ https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor */
 #top.on .gnb li{
     padding-right: 35px;
 }
+/* 마지막 li요소 제외 */
+#top.on .gnb li:last-child {
+    padding-right: 0;
+}
 /* GNB a요소 */
 #top.on .gnb a{
     color: #333;
 }
 
+/* 미디어쿼리 (GNB마진left 수치적용) */
+/* 1300px + 120px = 1420px부터 적용 */
+@media screen and (max-width:1420px) {
+    #top.on .gnb {
+        margin-left: 92px;
+        /* 왼쪽 공간 보정값 */
+    }
+}
+/* 860px이하 수치조정 */
+@media screen and (max-width:860px) {
+    #top.on .gnb {
+        margin-left: 120px;
+        /* 왼쪽 공간 보정값 */
+    }
+}
 /*************** 2. 하단영역 ***************/
 .info{
     min-height: 286px;
